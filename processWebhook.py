@@ -52,10 +52,10 @@ def getPlanetAttribute(req):
     planet = req.get('queryResult').get('parameters').get('planet')
     attribute = req.get('queryResult').get('parameters').get('attribute')
 
-    url = "https://rajkapadia-f8d1.restdb.io/rest/planets?q={\"Name\": \""+planet+"\"}"
+    url = URL_PLANETS
     headers = {
         'content-type': "application/json",
-        'x-apikey': "Your API Key",
+        'x-apikey': API_KEY,
         'cache-control': "no-cache"
     }
     data = requests.request("GET", url, headers=headers)
@@ -80,14 +80,14 @@ def saveFeedback(req):
         emailAddress = outputContexts[0]['parameters']['email']
         comment = outputContexts[0]['parameters']['any']
 
-        url = "https://rajkapadia-f8d1.restdb.io/rest/feedback"
+        url = URL_FEEDBACK
 
         payload = json.dumps( {"FirstName": firstName,
                         "EmailAddress": emailAddress,
                         "Comment":comment} )
         headers = {
             'content-type': "application/json",
-            'x-apikey': "Your API Key",
+            'x-apikey': API_Key,
             'cache-control': "no-cache"
         }
         data = requests.request("POST", url, data=payload, headers=headers)
