@@ -1,6 +1,7 @@
 import flask
 import requests
 import json
+import os
 
 app = flask.Flask(__name__)
 
@@ -52,10 +53,10 @@ def getPlanetAttribute(req):
     planet = req.get('queryResult').get('parameters').get('planet')
     attribute = req.get('queryResult').get('parameters').get('attribute')
 
-    url = URL_PLANETS
+    url = os.environ.get("URL_PLANETS")
     headers = {
         'content-type': "application/json",
-        'x-apikey': API_KEY,
+        'x-apikey': os.environ.get("API_KEY"),
         'cache-control': "no-cache"
     }
     data = requests.request("GET", url, headers=headers)
@@ -80,14 +81,14 @@ def saveFeedback(req):
         emailAddress = outputContexts[0]['parameters']['email']
         comment = outputContexts[0]['parameters']['any']
 
-        url = URL_FEEDBACK
+        url = os.environ.get("URL_FEEDBACK")
 
         payload = json.dumps( {"FirstName": firstName,
                         "EmailAddress": emailAddress,
                         "Comment":comment} )
         headers = {
             'content-type': "application/json",
-            'x-apikey': API_Key,
+            'x-apikey': os.environ.get("API_KEY"),
             'cache-control': "no-cache"
         }
         data = requests.request("POST", url, data=payload, headers=headers)
