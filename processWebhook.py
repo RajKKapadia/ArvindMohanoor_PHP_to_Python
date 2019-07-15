@@ -53,7 +53,7 @@ def getPlanetAttribute(req):
     planet = req.get('queryResult').get('parameters').get('planet')
     attribute = req.get('queryResult').get('parameters').get('attribute')
 
-    url = os.environ.get("URL_PLANETS")
+    url = os.environ.get("URL_PLANETS")+"?q={\"Name\": \""+planet+"\"}"
     headers = {
         'content-type': "application/json",
         'x-apikey': os.environ.get("API_KEY"),
