@@ -55,7 +55,7 @@ def getPlanetAttribute(req):
     url = "https://rajkapadia-f8d1.restdb.io/rest/planets?q={\"Name\": \""+planet+"\"}"
     headers = {
         'content-type': "application/json",
-        'x-apikey': "1321bcd79b315e18d7ef3a0d64f98d3cc4a4e",
+        'x-apikey': "Your API Key",
         'cache-control': "no-cache"
     }
     data = requests.request("GET", url, headers=headers)
@@ -87,7 +87,7 @@ def saveFeedback(req):
                         "Comment":comment} )
         headers = {
             'content-type': "application/json",
-            'x-apikey': "1321bcd79b315e18d7ef3a0d64f98d3cc4a4e",
+            'x-apikey': "Your API Key",
             'cache-control': "no-cache"
         }
         data = requests.request("POST", url, data=payload, headers=headers)
