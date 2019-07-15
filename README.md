@@ -1,7 +1,7 @@
 # ArvindMohanoor_PHP_to_Python
 This is a freelance repository for Arvind Mohanoor, and I am converting an existing PHP code to Python.
 
-## Pre-requisite :point_right: Python 3.7.3, SQlite, NGROK
+## Pre-requisite :point_right: Python 3.7.3, NGROK
 - install pipenv
 - copy the repository to folder
 - cd into folder
